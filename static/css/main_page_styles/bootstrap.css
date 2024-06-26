@@ -1,8 +1,5 @@
 /*!
  * Bootstrap v4.1.0 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
   --blue: #007bff;
@@ -562,7 +559,6 @@ pre code {
 }
 
 /**-- slider section --**/
-/**-- slider section --**/
 .tag-slider {
   margin: 30px auto;
   width: 825px;
@@ -630,7 +626,6 @@ pre code {
 }
 
 /*sl-button*/
-
 .tag-slider .container .row .tag-slider-1 .sl-links .sl-button {
   display: block;
   width: 10%;
@@ -659,7 +654,6 @@ pre code {
 }
 
 /*sl-all-teg*/
-
 .tag-slider .container .row .tag-slider-1 .sl-links .sl-all-teg {
   display: block;
   width: 90%;
@@ -689,7 +683,6 @@ pre code {
 }
 
 /*tag-slider.active*/
-
 .tag-slider.active .container .row .tag-slider-1 .sl-links .sl-list ul.sl-items {
   width: 100%;
   height: auto;
@@ -710,8 +703,6 @@ pre code {
 .tag-slider.active .container .row .tag-slider-1 .sl-links .sl-all-teg .pokaz-all {
   display: none;
 }
-
-/**/
 
 
 .sl-button a {
@@ -9196,4 +9187,3 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #dee2e6 !important;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */

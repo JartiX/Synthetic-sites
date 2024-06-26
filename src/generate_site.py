@@ -118,7 +118,10 @@ def choose_objects(number_of_objects, types_of_objects, randomize=True):
                     # Если координаты достаточно далеко от всех выбранных объектов
                     break
                 
-            selected_objects.append(Location_model(name=object_name, coords=coord, category=type_, image_path=f"static/imgs/{type_}/{object_name}.jpg", reviews_path=f"{path_to_reviews_folder}/{type_}/{object_name}.json", description_path=f"{path_to_description_folder}/{type_}/{object_name}.json"))
+            selected_objects.append(Location_model(name=object_name, coords=coord,
+                                                   category=type_, image_path=f"static/imgs/{type_}/{object_name}.jpg",
+                                                   reviews_path=f"{path_to_reviews_folder}/{type_}/{object_name}.json",
+                                                   description_path=f"{path_to_description_folder}/{type_}/{object_name}.json"))
             used_types[type_] += 1
     else:
         while len(selected_objects) < number_of_objects:
@@ -134,7 +137,10 @@ def choose_objects(number_of_objects, types_of_objects, randomize=True):
                             # Если координаты достаточно далеко от всех выбранных объектов
                             break
                 
-                    selected_objects.append(Location_model(name=object_name, coords=coord, category=type_, image_path=f"static/imgs/{type_}/{object_name}.jpg", reviews_path=f"{path_to_reviews_folder}/{type_}/{object_name}.json", description_path=f"{path_to_description_folder}/{type_}/{object_name}.json"))
+                    selected_objects.append(Location_model(name=object_name, coords=coord, 
+                                                           category=type_, image_path=f"static/imgs/{type_}/{object_name}.jpg", 
+                                                           reviews_path=f"{path_to_reviews_folder}/{type_}/{object_name}.json", 
+                                                           description_path=f"{path_to_description_folder}/{type_}/{object_name}.json"))
  
                        
     return selected_objects
@@ -305,12 +311,12 @@ def generate_site(site_name: str, city_name: str, types_of_objects: dict[str, li
         selected_objects = choose_objects(number_of_objects=number_of_all_objects, types_of_objects=types_of_objects, randomize=False)
         number_of_objects = number_of_all_objects
         
-    if number_of_all_objects < number_of_objects:
-        raise Exception("Not enough objects to generate site")
     print(f"Number of choosed locations: {number_of_objects}")
     
     print("Generating interactive map...")
-    generate_interactive_map(selected_objects, f"{path_to_sites_folder}/{site_name}", file_name="interactive_map.html")
+    generate_interactive_map(selected_objects, 
+                             f"{path_to_sites_folder}/{site_name}", 
+                             file_name="interactive_map.html")
     
     categories_names = []
     for obj in selected_objects:
@@ -385,7 +391,7 @@ def generate_site(site_name: str, city_name: str, types_of_objects: dict[str, li
                 
                 index = random.randint(0, len(feedback)-1)
                 while index in random_choose:
-                    if attempts > 3:
+                    if attempts > 5:
                         break
                     
                     index = random.randint(0, len(feedback)-1)
@@ -400,7 +406,7 @@ def generate_site(site_name: str, city_name: str, types_of_objects: dict[str, li
             sum_rate += rate
 
             selected_objects[num].likes+=random.randint(likes[rate][0],likes[rate][1])
-            time.sleep(2)
+            
         print(f"Reviews for {obj.name} generated. Remained {remainders}")
         
         if priority_generate:

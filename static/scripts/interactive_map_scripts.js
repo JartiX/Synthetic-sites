@@ -124,10 +124,10 @@ g.selectAll('.marker')
     .attr('stroke-width', 2)
     .attr('fill', 'red');
 
-// Добавление треугольника как нижней части метки
+// Добавление треугольника
 g.selectAll('.marker')
     .append('polygon')
-    .attr('points', '-5,5 5,5 0,15') // Координаты треугольника
+    .attr('points', '-5,5 5,5 0,15')
     .attr('fill', 'red');
 
 // Создание функции масштабирования
