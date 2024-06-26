@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/auth_form_styles/admin_panel_style.css">
+    <link rel="stylesheet" href="/static/css/back_button_style.css">
+    <title>Админ-панель</title>
+</head>
+
+<body>
+    <div class="main">
+        <button id="backButton" onclick="goBack_home()" aria-label="Назад">&lt; Назад</button>
+        <h1>Админ-панель</h1>
+    
+        <div class="content">
+            <div class="section">
+                <h2>Удалить пользователя по ID</h2>
+                <form id="removeUserForm">
+                    <label for="removeUserId">ID пользователя:</label>
+                    <input type="text" id="removeUserId" name="id"><br>
+                    <button type="submit">Удалить пользователя</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Создать пользователя</h2>
+                <form id="createUserForm">
+                    <label for="createUsername">Имя пользователя:</label>
+                    <input type="text" id="createUsername" name="username"><br>
+                    <label for="createEmail">Электронная почта:</label>
+                    <input type="email" id="createEmail" name="email"><br>
+                    <label for="createPassword">Пароль:</label>
+                    <input type="password" id="createPassword" name="password"><br>
+                    <label for="createIsAdmin">Админ:</label>
+                    <input type="checkbox" id="createIsAdmin" name="is_admin" value="1"><br>
+                    <button type="submit">Создать пользователя</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Изменить админ-права</h2>
+                <form id="makeAdminForm">
+                    <label for="adminUserId">ID пользователя:</label>
+                    <input type="text" id="adminUserId" name="id"><br>
+                    <label for="isAdmin">Админ:</label>
+                    <input type="checkbox" id="isAdmin" name="is_admin" value="1"><br>
+                    <button type="submit">Изменить админ-права</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Получить список пользователей</h2>
+                <form id="getUsersForm">
+                    <label for="getPageNumber">Страница:</label>
+                    <input type="number" id="getPageNumber" name="page_number"><br>
+                    <label for="getUserNumberOnPage"></label>
+                    <input type="number" id="getUserNumberOnPage" name="on_page_number"><br>
+                    <button type="submit">Получить список пользователей</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Получить имя пользователя по ID</h2>
+                <form id="getUsernameForm">
+                    <label for="getUsernameId">ID пользователя:</label>
+                    <input type="text" id="getUsernameId" name="id"><br>
+                    <button type="submit">Получить имя пользователя</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Получить электронную почту по ID</h2>
+                <form id="getEmailForm">
+                    <label for="getEmailId">ID пользователя:</label>
+                    <input type="text" id="getEmailId" name="id"><br>
+                    <button type="submit">Получить электронную почту</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Получить ID по имени пользователя</h2>
+                <form id="getIdByUsernameForm">
+                    <label for="getUsername">Имя пользователя:</label>
+                    <input type="text" id="getUsername" name="username"><br>
+                    <button type="submit">Получить ID</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Получить ID по электронной почте</h2>
+                <form id="getIdByEmailForm">
+                    <label for="getEmail">Электронная почта:</label>
+                    <input type="email" id="getEmail" name="email"><br>
+                    <button type="submit">Получить ID</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Удалить сайт с главной страницы</h2>
+                <form id="deleteSiteFromMainPageForm">
+                    <label for="deleteSite">Название сайта:</label>
+                    <input type="text" id="deleteSite" name="site"><br>
+                    <button type="submit">Удалить сайт</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Добавить сайт на главную страницу</h2>
+                <form id="addExistedSiteForm">
+                    <label for="addSite">Название сайта:</label>
+                    <input type="text" id="addSite" name="site"><br>
+                    <label for="addCity">Название города:</label>
+                    <input type="text" id="addCity" name="city"><br>
+                    <button type="submit">Добавить сайт</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Полное удаление сайта</h2>
+                <form id="deleteSiteForm">
+                    <label for="deleteSiteName">Название сайта:</label>
+                    <input type="text" id="deleteSiteName" name="site"><br>
+                    <button type="submit">Удалить сайт</button>
+                </form>
+            </div>
+    
+            <div class="section">
+                <h2>Создать сайт</h2>
+                <form id="createSiteForm">
+                    <label for="createSiteName">Название сайта:</label>
+                    <input type="text" id="createSiteName" name="site"><br>
+                    <label for="createCity">Название города:</label>
+                    <input type="text" id="createCity" name="city"><br>
+                    <label for="createTypesOfObjects">Обьекты {category_name:[location_name...],} (JSON):</label>
+                    <textarea id="createTypesOfObjects" name="types_of_objects"></textarea><br>
+                    <label for="createMinMaxObjects">Количество обьектов [int, int]|(int, int) (JSON):</label>
+                    <textarea id="createMinMaxObjects" name="min_max_objects"></textarea><br>
+                    <label for="createPriorityGenerate">Генерация в приоритете:</label>
+                    <input type="checkbox" id="createPriorityGenerate" name="priority_generate" value="1"><br>
+                    <label for="createRandomize">Рандомизировать выбор:</label>
+                    <input type="checkbox" id="createRandomize" name="randomize" value="1"><br>
+                    <button type="submit">Создать сайт</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            const apiKey = '{{ api_key }}';
+        </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/static/scripts/admin_panel.js"></script>
+        <script src="/static/scripts/back_button.js"></script>
+    </div>
+</body>
+
+</html>

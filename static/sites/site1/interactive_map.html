@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Убежище волшебника', 'category': 'Парки', 'coords': [534.254937, 585.816389], 'id': '175163a6-aca4-48e1-91f3-cfb0ebf7f8db'}, {'name': 'Фонтан Горгулии', 'category': 'Фонтаны', 'coords': [899.695204, 417.359667], 'id': '55c1282b-4a95-464b-9602-b6d721e4853a'}, {'name': 'Музей музыкантов', 'category': 'Музеи', 'coords': [822.67952, 764.873067], 'id': 'bf90b834-ebd0-48cf-a78c-e2c6d8eca6e3'}, {'name': 'Волшебный зоопарк', 'category': 'Зоопарки', 'coords': [547.404873, 85.095087], 'id': '363c821b-b7b2-498e-af5b-ff80f105f86f'}, {'name': 'Благородный музей', 'category': 'Музеи', 'coords': [262.022614, 266.724311], 'id': '60d43671-e643-409d-ada8-1acacec65f33'}, {'name': 'Сад единорога', 'category': 'Сады', 'coords': [769.613022, 1031.063544], 'id': 'c3343d7b-f6d6-4e9d-92e3-42a334c4631e'}, {'name': 'Очарованный лес', 'category': 'Сады', 'coords': [263.7465, 403.165252], 'id': '73962b2f-343a-493d-8068-97723c0192e2'}, {'name': 'Фонтан Феникса', 'category': 'Фонтаны', 'coords': [609.640175, 863.65288], 'id': '1fe7a436-648e-41fe-b839-5e311d5d8bb7'}, {'name': 'Роща грифонов', 'category': 'Парки', 'coords': [678.568229, 812.700868], 'id': '7fac0b1e-06bd-4fcf-88b5-f3d2e3ca8b8d'}, {'name': 'Королевская аркада', 'category': 'Торговые центры', 'coords': [828.240013, 879.67949], 'id': '60b36287-1927-4fa1-8276-889dcfca2737'}, {'name': 'Заповедник дикой природы Мерлина', 'category': 'Зоопарки', 'coords': [1026.414793, 162.620069], 'id': 'be0479d9-ddd0-4358-9fd4-bdf446ac10d5'}, {'name': 'Аквариум Логова Дракона', 'category': 'Аквариумы', 'coords': [604.59346, 818.782564], 'id': 'ae423dc7-36af-499d-99d3-07506660c5f9'}, {'name': 'Берег колдуна', 'category': 'Пляжи', 'coords': [986.590822, 638.43083], 'id': '7445b794-484f-4cd4-8164-2f8ff69f411d'}, {'name': 'Аквариум Залива Феникса', 'category': 'Аквариумы', 'coords': [303.122874, 388.183709], 'id': 'c129e405-c35a-4c70-9e52-72e684e6ad60'}, {'name': 'Библиотека колдуна', 'category': 'Музеи', 'coords': [368.643495, 627.0349], 'id': '2e9e1355-907a-438b-a3a4-15c913f63b78'}, {'name': 'Залив волшебников', 'category': 'Пляжи', 'coords': [520.470115, 892.620569], 'id': '65fbcd76-58cc-4e8d-9e66-22dc64c57216'}, {'name': 'Зачарованный лес', 'category': 'Парки', 'coords': [391.506485, 897.440512], 'id': '6c7598de-88d1-4182-9c07-ca77c876cf4a'}, {'name': 'Зоопарк во дворце', 'category': 'Зоопарки', 'coords': [881.645218, 634.035388], 'id': 'a7ec6032-2bc4-4e00-8a3c-7034e86d49d8'}, {'name': 'Фонтан Горгулии', 'category': 'Фонтаны', 'coords': [817.523844, 112.581717], 'id': '15c9a25c-620e-4a8a-9869-885a0528b869'}, {'name': 'Пиратский залив', 'category': 'Пляжи', 'coords': [241.621223, 826.516911], 'id': '055f92e2-f5a6-4a45-a583-bd6da7a9e154'}, {'name': 'Оперный дом Зачарованности', 'category': 'Театры', 'coords': [51.439961, 677.939603], 'id': '74ce46b7-5590-4f57-898f-deab56bc1903'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

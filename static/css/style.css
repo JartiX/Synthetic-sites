@@ -1,0 +1,255 @@
+.main-container {
+    max-width: 1600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.Description {
+    display: flex;
+    flex-direction: row;
+}
+.object-card {
+    position: relative;
+    top: 0;
+    right: 0%;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    overflow-y: auto;
+    height: 560px;
+}
+
+#close-button {
+    color: #ffffff;
+    background: rgb(4, 73, 150);
+    position: sticky;
+    text-decoration: none;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 10px;
+    top: 5px;
+    right: 5px;
+    transition: 0.3s ease-out;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#close-button:hover {
+    background: rgb(100, 170, 150);
+    transition: 0.3s ease-out;
+}
+
+.object-content {
+    padding: 20px;
+}
+
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.objects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.object {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.object-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.object-header h1 {
+    margin: 0 0 5px;
+    font-size: 1.6em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.object-header p {
+    margin: 0 0 5px;
+    font-size:  0.8em;
+    text-align: center;
+}
+
+.coordinates {
+    font-size: 1em;
+    color: #555;
+    text-align: center;
+}
+
+.coordinates p {
+    color: green;
+    margin: 0;
+}
+
+.coordinates span {
+    font-weight: bold;
+}
+
+.likes {
+    font-size: 1em;
+    color: #ca1515;
+    font-weight: bold;
+    text-align: center;
+}
+
+.comments {
+    margin-top: 10px;
+}
+
+.comments > p {
+    color: #cea613;
+    margin: 0 0 5px;
+}
+
+.comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment {
+    padding: 10px;
+    border-top: 2px solid #eee;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    color: #777;
+}
+
+.rate .rating {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ffa500;
+}
+
+.date {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.review {
+    font-weight: 30;
+    font-size: 0.8em;
+    color: #413c3c;
+}
+
+.visits {
+    margin-top: 15px;
+}
+
+.visits p {
+    margin: 0 0 5px;
+    font-weight: bold;
+}
+
+.day-of-week {
+    font-size: 0.9em;
+    color: #333;
+}
+
+.line {
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px 0;
+    height: 10px;
+    position: relative;
+}
+
+.line div {
+    background: #76c7c0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Стили для изображения и модального окна */
+.modal {
+    z-index: 999999999999999;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 90000;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    transition: opacity 0.3s;
+}
+
+.modal-container {
+    transform: scale(0.8);
+    transition: transform 0.3s, opacity 0.3s;
+    overflow: hidden;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    transition: transform 0.3s, opacity 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.img-enlargeable {
+    cursor: zoom-in;
+}
+
+.img-enlargeable:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}

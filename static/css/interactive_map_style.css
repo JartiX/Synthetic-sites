@@ -1,0 +1,94 @@
+body {
+    background-color: rgb(183, 186, 186);
+    font-family: Arial, sans-serif;
+}
+
+svg {
+    border: 1px solid #ccc;
+}
+
+.marker {
+    cursor: pointer;
+}
+
+.marker circle {
+    fill: red;
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.marker polygon {
+    fill: red;
+}
+
+.marker:hover circle {
+    fill: blue;
+}
+
+.marker:hover polygon {
+    fill: blue;
+}
+
+.zoom-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.zoom-buttons button {
+    margin-bottom: 5px;
+}
+
+.tooltip {
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.tooltip .name {
+    font-weight: bold;
+}
+
+.tooltip .type {
+    font-size: 10px;
+}
+
+.tooltip-bg {
+    fill: #fff;
+    stroke: #ccc;
+    stroke-width: 1px;
+    rx: 5;
+    ry: 5;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+}
+
+#zoom-in,
+#zoom-out {
+    width: 30px;
+    height: 30px;
+    color: #ffffff;
+    background: rgb(4, 73, 150);
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0px;
+    margin-left: 0px;
+    transition: 0.3s ease-out;
+    border-radius: 10px;
+}
+
+#zoom-in:hover,
+#zoom-out:hover {
+    background: rgb(100, 170, 150);
+    transition: 0.3s ease-out;
+}
+
+#zoom-in,
+#zoom-out {
+    margin-bottom: 20px;
+}
+
+.grid line {
+    stroke: #ddd;
+    shape-rendering: crispEdges;
+}

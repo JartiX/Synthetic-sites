@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Рынок Камелота', 'category': 'Торговые центры', 'coords': [923.750969, 865.041444], 'id': '1b6932bf-7c00-4853-b4be-3722700ed510'}, {'name': 'Империя колдуна', 'category': 'Торговые центры', 'coords': [619.397614, 941.980489], 'id': '35b7a9ae-57f2-413f-a504-54f9e69c7ff8'}, {'name': 'Зоопарк во дворце', 'category': 'Зоопарки', 'coords': [765.03576, 77.712657], 'id': '7e493463-64aa-4aca-be29-8dc33ea3eb01'}, {'name': 'Пиратский залив', 'category': 'Пляжи', 'coords': [224.654957, 647.551805], 'id': '7710c301-24aa-464f-b3c6-12e1b091c852'}, {'name': 'Аквариум кракенской бездны', 'category': 'Аквариумы', 'coords': [973.493386, 1032.809252], 'id': '6a9524bc-e778-4b5f-a9df-55ede548926e'}, {'name': 'Мастерская волшебника', 'category': 'Музеи', 'coords': [348.159476, 821.405771], 'id': 'f0e77ca5-989b-4e40-98ba-0e0d4d8a20f3'}, {'name': 'Аквариум с русалками', 'category': 'Аквариумы', 'coords': [318.680732, 831.697027], 'id': 'b8ae885c-d7ce-400f-9efc-62f602d2c0e6'}, {'name': 'Пляж Логова Дракона', 'category': 'Пляжи', 'coords': [397.666156, 196.459868], 'id': '5f0550cf-2c3d-4adc-9a5b-ff457675587b'}, {'name': 'Парк Логова Дракона', 'category': 'Парки', 'coords': [805.232974, 364.755898], 'id': '4a217ef4-98e7-490f-bf40-a22cf1f240db'}, {'name': 'Дом колдуна', 'category': 'Театры', 'coords': [51.341111, 962.419672], 'id': '5b0fbcd2-ca0d-4106-9643-e4d89bf74944'}, {'name': 'Лес волшебников', 'category': 'Парки', 'coords': [510.40935, 771.831866], 'id': 'f8cc98e9-d084-404f-a6ff-12237bb1c660'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

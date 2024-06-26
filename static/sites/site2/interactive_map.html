@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Оперный дом Зачарованности', 'category': 'Театры', 'coords': [814.284767, 886.484374], 'id': '2faa3d3a-e6a6-450e-a09b-15e4696b07b6'}, {'name': 'Сад единорога', 'category': 'Сады', 'coords': [1022.153124, 459.952314], 'id': '76ea3e82-6f17-4647-8a24-de27d45219b7'}, {'name': 'Укрытие дикого эльфа', 'category': 'Парки', 'coords': [1051.66063, 732.149095], 'id': 'f86f6635-bc59-4701-97ea-e8b7d234ce70'}, {'name': 'Аквариум зачарованного рифа', 'category': 'Аквариумы', 'coords': [658.73533, 485.840364], 'id': 'b80b348d-c416-40c2-b295-e0cd1c1ba6fa'}, {'name': 'Отступление рыцарей', 'category': 'Сады', 'coords': [45.391997, 603.167952], 'id': 'cbfec410-cea4-41d7-be3a-b59f134b97bc'}, {'name': 'Залив волшебников', 'category': 'Пляжи', 'coords': [1038.808883, 714.265354], 'id': 'a8ba77db-9ac9-4dd6-9b2e-2a76872bd833'}, {'name': 'Эльфийские сады', 'category': 'Зоопарки', 'coords': [226.026203, 473.83513], 'id': '34942586-aef2-4520-bdf2-10af6435165f'}, {'name': 'Театр дворового шута', 'category': 'Театры', 'coords': [650.642715, 449.644899], 'id': '3e554650-3693-4108-aafa-9b7fcc3fb1d8'}, {'name': 'Торговый центр Сокровище драконов', 'category': 'Торговые центры', 'coords': [545.046649, 673.255014], 'id': '6325508c-436a-43e7-8acc-b274525eb6ea'}, {'name': 'Благородный музей', 'category': 'Музеи', 'coords': [222.897925, 118.157871], 'id': '04b9dd82-adcc-4e1d-92af-f124f466721a'}, {'name': 'Аквариум Логова Дракона', 'category': 'Аквариумы', 'coords': [939.2063, 468.598552], 'id': '81312abb-4e00-4a6a-bc44-e01092ff58eb'}, {'name': 'Парк Логова Дракона', 'category': 'Парки', 'coords': [736.03292, 716.999268], 'id': 'f47e346d-1422-4f63-9ab0-8dc9c61e0d47'}, {'name': 'Музей музыкантов', 'category': 'Музеи', 'coords': [696.023784, 744.075788], 'id': 'c0e249f4-e9bc-4443-ab78-6a7e1fdd46f3'}, {'name': 'Башня волшебника', 'category': 'Исторические памятники', 'coords': [702.327261, 84.406658], 'id': 'd571e354-22d0-4a8f-9ff9-a1a078988223'}, {'name': 'Пиратский залив', 'category': 'Пляжи', 'coords': [554.591986, 801.041053], 'id': '3369fb34-e377-4300-b4b7-592b0c452430'}, {'name': 'Базар торговцев гильдии', 'category': 'Торговые центры', 'coords': [640.275878, 175.91306], 'id': '582395d2-d25a-4288-8657-0133072579e5'}, {'name': 'Зоопарк Феникса', 'category': 'Зоопарки', 'coords': [664.970423, 713.60118], 'id': 'be253934-0932-4d37-972f-c39ba23a8ab7'}, {'name': 'Фонтан Эльдрич', 'category': 'Фонтаны', 'coords': [89.07802, 198.234976], 'id': 'f7797818-beb6-4b59-b8c5-4179572f0176'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

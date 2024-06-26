@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/auth_form_styles/dash_board_style.css">
+    <link rel="stylesheet" href="/static/css/back_button_style.css">
+    <title>Личный кабинет</title>
+</head>
+
+<body>
+    <div class="main">
+        <button id="backButton" onclick="goBack()" aria-label="Назад">&lt; Назад</button>
+
+        <h1>Добро пожаловать, {{ current_user.username }}!</h1>
+
+        <div class="content">
+            <div class="content-middle">
+                <p>Ваш индивидуальный API-ключ: {{ api_key }}</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a href="{{ url_for('logout') }}" id="out_button">Выйти из аккаунта</a></p>
+            {% if current_user.is_admin %}
+            <p><a href="{{ url_for('admin_panel') }}">Админ-панель</a></p>
+            {% endif %}
+        </div>
+        <script src="/static/scripts/back_button.js"></script>
+    </div>
+</body>
+
+</html>

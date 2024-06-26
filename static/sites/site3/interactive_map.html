@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Роща грифонов', 'category': 'Парки', 'coords': [39.729243, 203.864181], 'id': 'a83cd8b9-11c7-4fb3-9908-90aa8b586b55'}, {'name': 'Заповедник дикой природы Мерлина', 'category': 'Зоопарки', 'coords': [360.966003, 909.251575], 'id': '973ba6af-aacb-4146-b020-6f49672b854b'}, {'name': 'Убежище волшебника', 'category': 'Парки', 'coords': [402.118065, 687.628023], 'id': 'a24b2848-e4c2-4e42-934b-89ca645d0859'}, {'name': 'Империя колдуна', 'category': 'Торговые центры', 'coords': [748.570482, 940.504896], 'id': '146f7c97-55df-4526-843a-f4a421d6813d'}, {'name': 'Библиотека колдуна', 'category': 'Музеи', 'coords': [177.111382, 854.189559], 'id': '1238090c-729b-4726-9ab9-3928cf98168b'}, {'name': 'Сцена королевских бардов', 'category': 'Театры', 'coords': [467.947062, 197.144763], 'id': '90b302fb-bdfe-4a79-9b99-0dbff00e00a2'}, {'name': 'Дом колдуна', 'category': 'Театры', 'coords': [267.029076, 838.863227], 'id': 'b1bfb42d-8158-49ba-bae2-c23982bcadd0'}, {'name': 'Статуя дракона-стража', 'category': 'Исторические памятники', 'coords': [637.47485, 220.190243], 'id': 'c5d0fa92-3d22-44d5-8814-3392c0b6d123'}, {'name': 'Зоопарк грифонов', 'category': 'Зоопарки', 'coords': [495.472247, 525.793999], 'id': '43b755f4-8c19-4471-a1e1-7bd2894ea7d2'}, {'name': 'Оперный дом волшебника', 'category': 'Театры', 'coords': [953.457773, 936.614679], 'id': '0cbee9ae-c6f9-4fc0-b7a7-cc24cfc52de7'}, {'name': 'Мифический каменный круг', 'category': 'Исторические памятники', 'coords': [282.890928, 433.487782], 'id': '3ca229a8-f593-4de3-8dfc-0e27d59aa3a2'}, {'name': 'Побережье Кракена', 'category': 'Пляжи', 'coords': [321.376178, 990.271258], 'id': '510fcdb3-717b-4174-8975-2842304fcca0'}, {'name': 'Очарованный пляж', 'category': 'Пляжи', 'coords': [777.648394, 60.194164], 'id': '38487381-69f7-4f14-86c7-503e5bb86876'}, {'name': 'Аквариум Залива Феникса', 'category': 'Аквариумы', 'coords': [307.275646, 436.234572], 'id': '9f602598-352e-406b-8bcc-04280c756a8d'}, {'name': 'Руины дворца', 'category': 'Исторические памятники', 'coords': [527.397701, 840.487671], 'id': '15d85c71-dfbc-4914-af0f-2cf0db9ae215'}, {'name': 'Волшебный зоопарк', 'category': 'Зоопарки', 'coords': [501.064351, 247.930371], 'id': 'd9892c26-3057-4933-b79a-17089a31084c'}, {'name': 'Сад колдуна', 'category': 'Сады', 'coords': [655.223391, 757.494736], 'id': '0657e0d2-bc36-44c9-8b19-fc7aba806ddd'}, {'name': 'Укрытие дикого эльфа', 'category': 'Парки', 'coords': [685.810468, 378.065827], 'id': 'cc8000bf-8e6c-42f0-92a2-32d94ebc738a'}, {'name': 'Пляж Рыцарей', 'category': 'Пляжи', 'coords': [549.095471, 763.933438], 'id': '8ee18888-a71f-41d6-9380-24bea0168010'}, {'name': 'Репозиторий мудреца', 'category': 'Музеи', 'coords': [416.415662, 138.496442], 'id': '1b106b59-9fbb-482a-8a03-c5df1fa8aa18'}, {'name': 'Фонтан Горгулии', 'category': 'Фонтаны', 'coords': [336.553252, 42.103132], 'id': '18db2605-a597-4b2d-9afb-4a871589fc1b'}, {'name': 'Сад драконьего цветка', 'category': 'Сады', 'coords': [149.794569, 84.69274], 'id': '0af0530c-1e7a-4eb0-ad38-3086bb629942'}, {'name': 'Волшебный базар', 'category': 'Торговые центры', 'coords': [38.536334, 523.828706], 'id': '7e1102e3-16ac-4675-9365-8e310b544c89'}, {'name': 'Рынок Камелота', 'category': 'Торговые центры', 'coords': [943.599993, 885.461711], 'id': '0cd99596-7920-4ba9-9c57-0a9a99e9bd84'}, {'name': 'Галерея короля', 'category': 'Музеи', 'coords': [69.70792, 665.61206], 'id': '61393585-c0be-4ef6-b160-79964002f4f8'}, {'name': 'Фонтан Дыхания Дракона', 'category': 'Фонтаны', 'coords': [584.802776, 512.738623], 'id': '866df4e5-acee-4243-bcef-198ab1038b43'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

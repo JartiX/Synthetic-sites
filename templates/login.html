@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/auth_form_styles/login_style.css">
+    <link rel="stylesheet" href="/static/css/back_button_style.css">
+    <link rel="stylesheet" href="/static/css/alert_style.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="main">
+        <button id="backButton" onclick="goBack_home()" aria-label="Назад">&lt; Назад</button>
+
+        <form method="POST" action="{{ url_for('login') }}">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=32) }}<br>
+                {% for error in form.email.errors %}
+                <span class="show-error">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}<br>
+                {% for error in form.password.errors %}
+                <span class="show-error">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.remember() }}
+                {{ form.remember.label }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+            
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <script src="/static/scripts/back_button.js"></script>
+</body>
+
+</html>

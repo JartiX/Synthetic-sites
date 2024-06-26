@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Рынок рыцарей', 'category': 'Торговые центры', 'coords': [272.286659, 957.032533], 'id': '77a721d5-85d4-4eb8-9a1b-22fa8244be3e'}, {'name': 'Колизей Колосс', 'category': 'Исторические памятники', 'coords': [1048.614635, 959.741222], 'id': '7684290c-bf08-4b12-b199-fed4ef89383d'}, {'name': 'Храм драконов', 'category': 'Исторические памятники', 'coords': [359.810044, 886.642232], 'id': '88ca780e-349c-44eb-8858-9a0e60d3215e'}, {'name': 'Сад феи холл', 'category': 'Сады', 'coords': [981.639569, 813.945742], 'id': '7b8a8497-dbed-4428-a9d0-cd874ffa1010'}, {'name': 'Рынок Камелота', 'category': 'Торговые центры', 'coords': [319.167729, 742.235344], 'id': '769f998c-c972-4de3-87bd-5bf7a4d282de'}, {'name': 'Крепость замка', 'category': 'Исторические памятники', 'coords': [396.081282, 853.88624], 'id': '99010702-71e1-4220-b681-83a89f21dde2'}, {'name': 'Сад рыцарей', 'category': 'Парки', 'coords': [821.975361, 255.576486], 'id': '981b3896-f674-4d8e-b127-d9c419750be9'}, {'name': 'Залив феи', 'category': 'Пляжи', 'coords': [856.185831, 1039.358572], 'id': '0ade32eb-5261-4a99-adc4-675ce8a711a0'}, {'name': 'Благородный музей', 'category': 'Музеи', 'coords': [937.034421, 964.280233], 'id': '64022b20-b932-4d6e-9f43-ef694ea08a6d'}, {'name': 'Волшебный зоопарк', 'category': 'Зоопарки', 'coords': [535.383628, 374.198925], 'id': 'c539c365-6703-4337-a472-35c2a29f9dbc'}, {'name': 'Фонтан Феникса', 'category': 'Фонтаны', 'coords': [933.990597, 1007.065272], 'id': 'f58b8e45-b694-4a8f-b3ec-37aaf94eeca6'}, {'name': 'Мастерская волшебника', 'category': 'Музеи', 'coords': [442.808522, 336.78718], 'id': '0c1085e7-a535-41fc-a3d0-d37472134587'}, {'name': 'Друидский арборетум', 'category': 'Сады', 'coords': [870.263288, 616.219219], 'id': 'ee1bef9e-c5e2-4b23-b378-c33cdf6c352c'}, {'name': 'Королевский зверинец', 'category': 'Зоопарки', 'coords': [227.500901, 665.424535], 'id': '675aa10b-b200-4b3f-9d91-909b67db0dae'}, {'name': 'Аквариум Залива Феникса', 'category': 'Аквариумы', 'coords': [150.755459, 920.715331], 'id': '8c889261-d035-4759-94bb-67a936b1385e'}, {'name': 'Амфитеатр рыцарей', 'category': 'Театры', 'coords': [707.103222, 1026.796259], 'id': '3b911705-541e-4bac-944e-09c55b58ba23'}, {'name': 'Фонтан Мистических вод', 'category': 'Фонтаны', 'coords': [32.434172, 461.405603], 'id': '53faa277-9cdd-45f4-9e21-900bfa7351b4'}, {'name': 'Бардовый зал', 'category': 'Музеи', 'coords': [116.528642, 860.905702], 'id': 'bfe1d206-303f-44cc-9581-f4501bda37fb'}, {'name': 'Пиратский залив', 'category': 'Пляжи', 'coords': [356.887727, 727.574658], 'id': '63cdb13c-3475-43f8-b29d-f6428d7dad0e'}, {'name': 'Эльфийская поляна', 'category': 'Парки', 'coords': [181.977794, 49.940098], 'id': 'dfb8437a-c67c-4d8f-a919-b621ccca9345'}, {'name': 'Аквариум зачарованного рифа', 'category': 'Аквариумы', 'coords': [332.611918, 247.499164], 'id': '50f685bb-7f9a-422a-acda-8514899f7665'}, {'name': 'Аквариум мистической глубины', 'category': 'Аквариумы', 'coords': [924.797245, 851.01913], 'id': '1d440a73-4ea6-4c9d-bff0-e0b3e7e8468e'}, {'name': 'Королевская аркада', 'category': 'Торговые центры', 'coords': [601.393548, 538.481514], 'id': '84cd41a5-a208-48f8-a1ac-3e0f8c2673b6'}, {'name': 'Лагуна русалок', 'category': 'Пляжи', 'coords': [124.104887, 134.800104], 'id': 'aeaeee6b-63da-45f0-aec3-96a4ceb12a8a'}, {'name': 'Зоопарк Феникса', 'category': 'Зоопарки', 'coords': [806.019197, 1068.228884], 'id': '9b9a7b93-d48a-49fd-9cdf-ec9d39635fb0'}, {'name': 'Фонтан Экскалибура', 'category': 'Фонтаны', 'coords': [410.344588, 746.138], 'id': 'fbfad065-f7a7-4ea5-9be1-0c9dfbde78cb'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

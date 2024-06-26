@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/auth_form_styles/home_style.css">
+    <link rel="stylesheet" href="/static/css/back_button_style.css">
+    <link rel="stylesheet" href="/static/css/navigation.css">
+    <title>Домашняя страница</title>
+</head>
+
+<body>
+    <div class="main">
+        <button id="backButton" onclick="goBack()" aria-label="Назад">&lt; Назад</button>
+        <h1>Добро пожаловать в форму авторизации!</h1>
+        <header class="navbar">
+            <div class="link-div">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="{{ url_for('login') }}">Логин</a></li>
+                        <li><a href="{{  url_for('register') }}">Регистрация</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <div class="content">
+            <div class="content-middle">
+                <p>Рады видеть вас здесь. Пожалуйста, войдите или зарегистрируйтесь, чтобы получить доступ ко всем функциям.</p>
+            </div>
+        </div>
+    </div>
+    <script src="/static/scripts/back_button.js"></script>
+</body>
+
+</html>

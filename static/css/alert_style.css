@@ -1,0 +1,23 @@
+.show-error,
+.alert-danger,
+.alert-success {
+    font-weight: bolder;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.alert-danger {
+    color: #ffffff;
+    background-color: #ff3c00;
+}
+
+.alert-success {
+    color: #ffffff;
+    background-color: #28a745;
+}
+
+.show-error {
+    background-color: #ff3c00;
+    color: #ffffff;
+}
