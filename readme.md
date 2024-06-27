@@ -1,3 +1,8 @@
+# Примеры сгенерированных сайтов
+https://jartix.github.io/Synthetic-sites/docs/sites_preview/site6/index.html
+https://jartix.github.io/Synthetic-sites/docs/sites_preview/site7/index.html
+https://jartix.github.io/Synthetic-sites/docs/sites_preview/site8/index.html
+
 # Структура проекта
 ```txt
 .
