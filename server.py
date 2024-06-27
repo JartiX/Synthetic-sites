@@ -743,7 +743,7 @@ def add_existed_site():
         Args:
             site (str): название сайта,
             city (str): название города,
-            API-key (str): индивидуальный API-ключ 
+            API-KEY (str): индивидуальный API-ключ 
     """
     city = request.args.get("city")
     site = request.args.get("site")
@@ -782,7 +782,7 @@ def delete_site_():
         Для доступа к функции требуются админ права и API-ключ
         Args:
             site (str): название сайта,
-            API-key (str): индивидуальный API-ключ 
+            API-KEY (str): индивидуальный API-ключ 
     """
     site = request.args.get("site")
     if site is None:
@@ -812,7 +812,7 @@ def create_site():
             min_max_objects (list(int, int), tuple(int, int)): границы количества выбранных обьектов,
             priority_generate (0/1): указание приоритета генерации контента,
             randomize (0/1): нужно ли выбирать случайное число обьектов или создавать сайт со всеми обьектами,
-            API-key (str): индивидуальный API-ключ 
+            API-KEY (str): индивидуальный API-ключ 
     """
     city = request.args.get("city")
     site = request.args.get("site")
@@ -846,4 +846,4 @@ def create_site():
 
     
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")

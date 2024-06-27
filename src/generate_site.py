@@ -207,7 +207,8 @@ def generate_feedback(prompt, category, rate, role):
             base_prompt = random.choice(base_prompts)
             generated = generate_text(base_prompt, f'{role} который хочет написать отзыв')
             return generated
-        except:
+        except Exception as ex:
+            print(ex)
             continue
         
         

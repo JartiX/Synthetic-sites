@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Аквариум мистической глубины', 'category': 'Аквариумы', 'coords': [517.744856, 995.234673], 'id': '318e6411-c93b-4482-81f9-33f42a3e1af6'}, {'name': 'Сад феи', 'category': 'Сады', 'coords': [45.205624, 664.360386], 'id': 'b489b771-dd6a-4960-b3c2-01c81b190171'}, {'name': 'Рынок рыцарей', 'category': 'Торговые центры', 'coords': [401.875053, 596.68288], 'id': '00c36d70-7311-4c8f-9414-e52ec436bca2'}, {'name': 'Галерея короля', 'category': 'Музеи', 'coords': [263.051243, 33.275842], 'id': 'cba1aa61-4a0b-42f6-9e3d-b1136695aff5'}, {'name': 'Фонтан Феникса', 'category': 'Фонтаны', 'coords': [699.50732, 315.748969], 'id': 'f5fd3f12-ab06-4055-8721-9acd28f895b8'}, {'name': 'Сцена королевских бардов', 'category': 'Театры', 'coords': [92.877039, 127.591829], 'id': 'bfc652b7-7cfc-4e9c-aa19-0a026128394b'}, {'name': 'Театр Фейвайлд', 'category': 'Театры', 'coords': [932.315048, 116.950969], 'id': 'c36d029b-b2b4-4ce2-9655-892873237f83'}, {'name': 'Аквариум кракенской бездны', 'category': 'Аквариумы', 'coords': [642.24216, 310.158755], 'id': '80a17c4b-5fb6-4196-bedf-5486ff02fe46'}, {'name': 'Побережье Кракена', 'category': 'Пляжи', 'coords': [1079.651584, 138.581647], 'id': '2124aa83-ee9c-4105-bf28-914355a246d4'}, {'name': 'Тайный сад Мерлина', 'category': 'Сады', 'coords': [607.633822, 70.641326], 'id': 'd9332046-cfa0-4fc3-9e9a-958cc322a010'}, {'name': 'Зачарованный лес', 'category': 'Парки', 'coords': [563.120166, 78.442005], 'id': 'c22adad6-be8c-4ea5-b9f6-c84d5bdf0d4a'}, {'name': 'Эльфийские сады', 'category': 'Зоопарки', 'coords': [879.710057, 834.995187], 'id': '5b8351d9-2d89-41f2-8ab4-18b6e3ba3919'}, {'name': 'Эльфийская поляна', 'category': 'Парки', 'coords': [423.776305, 213.161431], 'id': '566d33cf-1252-45bf-bb52-6cf979716843'}, {'name': 'Благородный музей', 'category': 'Музеи', 'coords': [145.444921, 457.757629], 'id': '18b279a8-baa1-45d8-9d2f-8fbd408a8125'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

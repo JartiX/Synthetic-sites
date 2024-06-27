@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Эльфийские сады', 'category': 'Зоопарки', 'coords': [424.607376, 59.408883], 'id': '337ec892-e9e6-4ef0-8b51-1217b95e7012'}, {'name': 'Залив феи', 'category': 'Пляжи', 'coords': [145.048779, 837.577796], 'id': 'dee5689c-0728-463d-a6db-ce0fe6eeec2d'}, {'name': 'Театр Логова Дракона', 'category': 'Театры', 'coords': [736.682574, 311.523876], 'id': '71891912-596e-4fec-aa3e-aad3a63657e9'}, {'name': 'Площадь Фейвайлд', 'category': 'Торговые центры', 'coords': [488.677059, 160.885291], 'id': 'a3e906bf-c0b9-438a-82e4-adb2286c2c43'}, {'name': 'Башня замка', 'category': 'Исторические памятники', 'coords': [998.664049, 1069.474072], 'id': '0f783e65-153f-472a-bdd0-5a568ef838c3'}, {'name': 'Сад драконьего цветка', 'category': 'Сады', 'coords': [774.746224, 495.527255], 'id': '43d5e10b-6f2e-4393-ad90-24a0860d0d75'}, {'name': 'Зоопарк волшебников', 'category': 'Зоопарки', 'coords': [834.600099, 705.93402], 'id': '60bdf9fa-995b-4222-bf8f-197c4310376e'}, {'name': 'Мастерская волшебника', 'category': 'Музеи', 'coords': [284.716303, 645.863041], 'id': '6cab25b7-70d4-4a79-bfbc-881636c76aa8'}, {'name': 'Очарованный рынок', 'category': 'Торговые центры', 'coords': [363.609774, 24.318327], 'id': 'e4825cdd-4d93-4cda-bcc1-94fa18f53cde'}, {'name': 'Оперный дом Зачарованности', 'category': 'Театры', 'coords': [169.848581, 280.514746], 'id': '624313b6-68c5-48d1-b74e-18d9640ef684'}, {'name': 'Лагуна русалок', 'category': 'Пляжи', 'coords': [1058.637689, 688.683562], 'id': '4c8b2221-29f3-4e27-a8b3-527f69942e8c'}, {'name': 'Фонтан Зачарования', 'category': 'Фонтаны', 'coords': [882.832724, 527.302036], 'id': '2ea7402c-dd9b-4bb8-b932-f711cee1e63e'}, {'name': 'Фонтан Желаний', 'category': 'Фонтаны', 'coords': [950.681167, 468.50206], 'id': '749e2b23-fd08-4712-97d4-4dda0655d709'}, {'name': 'Великая стена дракона', 'category': 'Исторические памятники', 'coords': [982.419598, 501.554186], 'id': '05d5613f-5aab-475c-ad75-dab7cdfcdf4b'}, {'name': 'Библиотека колдуна', 'category': 'Музеи', 'coords': [399.887647, 943.212124], 'id': '912e3906-cfee-48f1-a727-09e69d1e7b15'}, {'name': 'Сад феи', 'category': 'Сады', 'coords': [43.701899, 422.270932], 'id': '20987c32-96d5-40a3-9f40-9bcdabec4122'}, {'name': 'Парк Логова Дракона', 'category': 'Парки', 'coords': [845.08866, 900.396568], 'id': '501c6c20-f416-4e6a-863b-47a95829873d'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>
