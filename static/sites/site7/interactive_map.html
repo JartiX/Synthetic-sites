@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Пляж Рыцарей', 'category': 'Пляжи', 'coords': [415.084338, 964.901371], 'id': '3048f2d3-2460-47d3-9e48-9ca1154ef5d6'}, {'name': 'Сад рыцарей', 'category': 'Парки', 'coords': [943.877308, 586.935508], 'id': '0ac5a73b-5083-4d48-8d62-abed6a852851'}, {'name': 'Благородный музей', 'category': 'Музеи', 'coords': [239.515999, 881.981762], 'id': '3337fad3-809f-4086-9706-5b20c24f9e1c'}, {'name': 'Фонтан Феникса', 'category': 'Фонтаны', 'coords': [238.512056, 934.288765], 'id': 'c9e21df5-06cc-4a0d-8167-2a5ece5a8bb3'}, {'name': 'Библиотека колдуна', 'category': 'Музеи', 'coords': [387.986505, 1066.337288], 'id': '545cb7c3-c278-47b2-9512-1932e75682bc'}, {'name': 'Королевский зверинец', 'category': 'Зоопарки', 'coords': [186.744476, 856.380958], 'id': '34b19f66-c683-47b9-a8eb-4b537aa02d37'}, {'name': 'Драконье убежище', 'category': 'Зоопарки', 'coords': [889.551137, 932.390721], 'id': '19734091-b92c-44a5-b2d0-8768e6d0001c'}, {'name': 'Луг Мерлина', 'category': 'Парки', 'coords': [1066.076116, 417.733751], 'id': 'c0a294c9-3a7a-4810-94f1-6b963f43db66'}, {'name': 'Оперный дом волшебника', 'category': 'Театры', 'coords': [1058.450066, 356.273591], 'id': '7be7c7eb-e426-4728-bb67-17d3954aa3f7'}, {'name': 'Театр Логова Дракона', 'category': 'Театры', 'coords': [137.077033, 45.815829], 'id': '01deb98f-4983-413c-914a-2ed0a61ae121'}, {'name': 'Залив волшебников', 'category': 'Пляжи', 'coords': [997.450877, 412.118384], 'id': '93fba36b-6038-4511-bd16-2f8a4929619e'}, {'name': 'Рынок магов', 'category': 'Торговые центры', 'coords': [664.013252, 819.338059], 'id': '73ca750b-2c70-4194-a889-930a88e93e62'}, {'name': 'Очарованный лес', 'category': 'Сады', 'coords': [933.418885, 64.669202], 'id': 'd235f85b-af8b-4331-b61d-25f5cc4231f1'}, {'name': 'Аквариум мистической глубины', 'category': 'Аквариумы', 'coords': [368.934484, 565.297893], 'id': '6759a05c-ec1b-43ea-9e77-5f40c366df7b'}, {'name': 'Роща грифонов', 'category': 'Парки', 'coords': [906.218293, 1036.802258], 'id': '70fb8075-7442-4892-abff-6cac5c0b04e4'}, {'name': 'Ателье алхимика', 'category': 'Музеи', 'coords': [146.779915, 285.966241], 'id': '9d3630b2-c15c-4be5-badc-a25946890fde'}, {'name': 'Башня волшебника', 'category': 'Исторические памятники', 'coords': [823.70534, 242.548057], 'id': '75345903-a1ac-4cae-a44d-7b98c1568dac'}, {'name': 'Статуя дракона-стража', 'category': 'Исторические памятники', 'coords': [886.910674, 793.470783], 'id': '5be713a1-e876-4c94-b62f-572a61da72e5'}, {'name': 'Фонтан Желаний', 'category': 'Фонтаны', 'coords': [524.172892, 1054.376705], 'id': '1fee38d2-ced8-4cb4-a55d-2cb72900b824'}, {'name': 'Фонтан Грааля', 'category': 'Фонтаны', 'coords': [408.889926, 230.928353], 'id': '8fb43dbd-f3b3-4454-98ed-4552b36cb55a'}, {'name': 'Башня замка', 'category': 'Исторические памятники', 'coords': [526.486299, 69.239562], 'id': '1156c30a-f5a9-4653-a00e-946949b671e5'}, {'name': 'Площадь Фейвайлд', 'category': 'Торговые центры', 'coords': [214.814489, 1074.323166], 'id': 'a6747071-a53e-4fd2-a604-1fa4eb585bc2'}, {'name': 'Оперный дом Зачарованности', 'category': 'Театры', 'coords': [934.2238, 641.324739], 'id': 'c1bc7bc6-088e-494f-aa45-542e71ae1fe3'}, {'name': 'Лагуна русалок', 'category': 'Пляжи', 'coords': [351.622421, 993.908744], 'id': 'aece992e-aee7-471e-b99e-f6a9a7a42aa2'}, {'name': 'Зоопарк грифонов', 'category': 'Зоопарки', 'coords': [806.769632, 360.59926], 'id': '2c157c96-f2cf-4471-a76e-0b8c78b2aa4a'}, {'name': 'Рынок Камелота', 'category': 'Торговые центры', 'coords': [307.905491, 1007.60987], 'id': '11bebd6b-6dbb-4e09-ae86-a83df80e879e'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

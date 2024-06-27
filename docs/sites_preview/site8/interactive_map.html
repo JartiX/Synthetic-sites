@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Театр Логова Дракона', 'category': 'Театры', 'coords': [122.407352, 130.612909], 'id': 'b799dc53-3f2d-4983-8a91-cdefdde9f93d'}, {'name': 'Аквариум Логова Дракона', 'category': 'Аквариумы', 'coords': [386.544737, 1010.060376], 'id': '93c0a0e1-ca7a-436e-8c48-a299bcbcf16c'}, {'name': 'Укрытие дикого эльфа', 'category': 'Парки', 'coords': [127.468977, 733.464844], 'id': 'e6faa574-a63b-4506-8061-b4cf4534780c'}, {'name': 'Фонтан Феникса', 'category': 'Фонтаны', 'coords': [831.039787, 61.799005], 'id': '1d973105-303a-4bda-99b8-cdf5b8e65ef3'}, {'name': 'Королевская роща', 'category': 'Парки', 'coords': [816.08345, 571.167468], 'id': '1be47303-d320-4617-b4fc-5fd9bb2a8010'}, {'name': 'Эльфийские сады', 'category': 'Зоопарки', 'coords': [876.996113, 622.274661], 'id': '0ca9c47a-c73f-4d83-ad43-02ad64c7b6fc'}, {'name': 'Очарованный лес', 'category': 'Сады', 'coords': [87.824151, 511.252551], 'id': '926590aa-f809-4d4a-8962-a53418487707'}, {'name': 'Крепость замка', 'category': 'Исторические памятники', 'coords': [388.808253, 743.011092], 'id': '1f142bf1-7d52-4aa9-af1c-2f2d0007b75c'}, {'name': 'Волшебный базар', 'category': 'Торговые центры', 'coords': [473.449174, 483.752785], 'id': 'fcde79f8-caf7-4d01-a6aa-4f254aaeafdc'}, {'name': 'Музей музыкантов', 'category': 'Музеи', 'coords': [812.483902, 407.37134], 'id': '5ba89421-227a-428f-899e-4efa12cef1e1'}, {'name': 'Галерея короля', 'category': 'Музеи', 'coords': [419.605566, 498.436619], 'id': '7bb70d21-6130-4f7e-9227-a86d0cc7e9e3'}, {'name': 'Театр Фейвайлд', 'category': 'Театры', 'coords': [235.091681, 144.934949], 'id': '94b3fe21-4bf4-44ae-8343-12b8d8c90995'}, {'name': 'Базар торговцев гильдии', 'category': 'Торговые центры', 'coords': [800.907353, 920.612795], 'id': '396beef1-6dc9-4da1-831c-e695c9da48f5'}, {'name': 'Волшебный зоопарк', 'category': 'Зоопарки', 'coords': [818.66571, 676.618011], 'id': 'f0020e2e-0c76-494a-aaad-a1c82d4ce027'}, {'name': 'Сад драконьего цветка', 'category': 'Сады', 'coords': [834.347273, 1015.446393], 'id': '6353d73c-f321-4368-aee8-47c1e5377a46'}, {'name': 'Сад единорога', 'category': 'Сады', 'coords': [746.795198, 201.597415], 'id': '10edbf42-01b2-4db0-bbf6-237728de53e7'}, {'name': 'Зачарованный лес', 'category': 'Парки', 'coords': [398.054628, 68.169922], 'id': '572f2f3f-61c0-4a37-aba9-cb46e9e60fef'}, {'name': 'Рынок магов', 'category': 'Торговые центры', 'coords': [1036.837275, 658.219167], 'id': '934a356d-25dd-4c6d-ad9a-562d7d6e126a'}, {'name': 'Подводный мир Фейвайлд', 'category': 'Аквариумы', 'coords': [272.792238, 892.785017], 'id': '89cf2c30-ffa5-4491-8e8d-8763d2568e29'}, {'name': 'Руины дворца', 'category': 'Исторические памятники', 'coords': [57.506813, 743.962486], 'id': '5a2ab1ae-72f5-429b-83ea-6160bbed35d6'}, {'name': 'Зоопарк волшебников', 'category': 'Зоопарки', 'coords': [189.938563, 643.775029], 'id': '7ad91d49-8047-4c76-8ac1-4627baf153f8'}, {'name': 'Фонтан Грааля', 'category': 'Фонтаны', 'coords': [779.10113, 150.274517], 'id': '72df7f6f-27f0-417d-852c-44543a553018'}, {'name': 'Королевский театр', 'category': 'Театры', 'coords': [378.508767, 90.748294], 'id': 'ba44fa9a-b826-41ea-a70d-dea51957d081'}, {'name': 'Аквариум зачарованного рифа', 'category': 'Аквариумы', 'coords': [313.415524, 22.409209], 'id': '2473b6c5-0986-4c81-a84c-df90bcb1e4b8'}, {'name': 'Королевская армия', 'category': 'Музеи', 'coords': [726.953929, 1042.586016], 'id': '6824908c-f729-4503-9117-8b1d8a704a23'}, {'name': 'Лагуна русалок', 'category': 'Пляжи', 'coords': [324.060063, 788.865662], 'id': '7b90adfd-a873-4969-8c8b-a41862e779b1'}, {'name': 'Храм драконов', 'category': 'Исторические памятники', 'coords': [70.420294, 876.316476], 'id': '6d1d924d-8292-4e4d-8637-e408fe9193f4'}, {'name': 'Фонтан Мистических вод', 'category': 'Фонтаны', 'coords': [439.175149, 696.974749], 'id': 'f23dd5e6-8f48-4a67-86b6-1d8d9b8e167e'}, {'name': 'Побережье Кракена', 'category': 'Пляжи', 'coords': [419.533336, 231.297873], 'id': '7cd95268-8d1f-4262-8eed-6e8eb48e716f'}];
+    </script>
+    <script src="../../../static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

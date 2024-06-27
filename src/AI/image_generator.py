@@ -1,6 +1,6 @@
 import json
 import time
-from ignore.keys import api_key, secret_key
+from keys import api_key, secret_key
 import requests
 import base64
 

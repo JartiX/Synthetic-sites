@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Волшебный зоопарк', 'category': 'Зоопарки', 'coords': [1004.235408, 405.904239], 'id': '9b993912-408a-4042-95d4-0206b13256ae'}, {'name': 'Театр Фейвайлд', 'category': 'Театры', 'coords': [509.226845, 297.372008], 'id': '3a1a2558-a689-42bf-8b9a-0fa1c74d76dc'}, {'name': 'Сад драконьего цветка', 'category': 'Сады', 'coords': [193.281987, 787.08548], 'id': '7b4f27a4-5c2b-4170-94a6-667790021fff'}, {'name': 'Пиратский залив', 'category': 'Пляжи', 'coords': [596.205398, 51.918194], 'id': 'db1ce2f2-a84d-4036-85e8-441265530886'}, {'name': 'Башня волшебника', 'category': 'Исторические памятники', 'coords': [485.135174, 136.345411], 'id': 'ab5be3f4-4b57-45fa-8d6a-efad2ee60d64'}, {'name': 'Залив волшебников', 'category': 'Пляжи', 'coords': [677.728734, 962.809888], 'id': '4a603a14-3f61-49fd-9afc-44246bc986e8'}, {'name': 'Сад феи холл', 'category': 'Сады', 'coords': [955.403799, 308.270878], 'id': '61c2fd9f-4a0e-446d-9d3f-046e53201639'}, {'name': 'Торговый центр Сокровище драконов', 'category': 'Торговые центры', 'coords': [738.513688, 562.558463], 'id': 'f5c5961b-43fe-4def-b842-aa7a418dfdd1'}, {'name': 'Аквариум кракенской бездны', 'category': 'Аквариумы', 'coords': [806.280682, 1019.715757], 'id': '2665c6dd-0076-46ed-947a-1aba6d984cbb'}, {'name': 'Статуя дракона-стража', 'category': 'Исторические памятники', 'coords': [527.947972, 306.149761], 'id': 'c71c2a99-869f-459e-9c17-f2d39b5b4e6b'}, {'name': 'Крепость замка', 'category': 'Исторические памятники', 'coords': [591.403243, 350.204082], 'id': '7036b17a-92c2-4852-a97a-529c29b497ef'}, {'name': 'Фонтан Эльдрич', 'category': 'Фонтаны', 'coords': [209.590431, 1022.329194], 'id': '38cac9e5-d3d8-494b-8db2-35d02406b291'}, {'name': 'Лагуна русалок', 'category': 'Пляжи', 'coords': [482.76955, 496.895008], 'id': '19b68030-c2d7-4638-b42e-c7c0e84f6377'}, {'name': 'Драконье убежище', 'category': 'Зоопарки', 'coords': [550.876854, 184.757435], 'id': '65e7a869-626a-4488-9724-71f9bb2bf8ea'}, {'name': 'Мастерская волшебника', 'category': 'Музеи', 'coords': [267.009116, 1008.560056], 'id': '5d649188-650c-42da-84a6-ce9e443ca030'}, {'name': 'Ателье алхимика', 'category': 'Музеи', 'coords': [1033.655929, 190.227668], 'id': '50d5f827-158a-42a5-931f-209d27f4c2f1'}, {'name': 'Фонтан Единорога', 'category': 'Фонтаны', 'coords': [951.932164, 547.738845], 'id': 'b048107b-b746-4c2a-85b8-157840dc7d6f'}, {'name': 'Королевская аркада', 'category': 'Торговые центры', 'coords': [200.466795, 1041.623437], 'id': '4a8b2733-4a59-472e-833d-3282ac08deb6'}, {'name': 'Фонтан Горгулии', 'category': 'Фонтаны', 'coords': [394.782754, 489.02664], 'id': '4ffd441d-90f0-4fda-bf7f-3727ba2d8721'}, {'name': 'Подводный мир Фейвайлд', 'category': 'Аквариумы', 'coords': [584.131161, 675.372299], 'id': '0aa42744-3391-4b9f-9e81-e8194637f0fa'}, {'name': 'Зоопарк во дворце', 'category': 'Зоопарки', 'coords': [467.255267, 1028.71059], 'id': '282b34cf-7c89-44db-a25a-d69b8a08dfb4'}, {'name': 'Рынок Камелота', 'category': 'Торговые центры', 'coords': [726.735781, 741.671306], 'id': 'd6281b1c-1043-4c9c-98cd-09c9fc9a38aa'}, {'name': 'Амфитеатр рыцарей', 'category': 'Театры', 'coords': [440.390659, 797.565889], 'id': '2e718212-1e91-4b47-9b71-98fabe12c9e3'}, {'name': 'Оперный дом волшебника', 'category': 'Театры', 'coords': [580.270806, 465.18367], 'id': '5dddf34b-fb24-4957-bb9f-6c37dd70bd1e'}, {'name': 'Морской заповедник колдуна', 'category': 'Аквариумы', 'coords': [414.763678, 173.50208], 'id': '50ec424b-f8a0-495d-861a-66c0293a02aa'}, {'name': 'Друидский арборетум', 'category': 'Сады', 'coords': [772.128392, 443.391918], 'id': '2c9031e4-a99b-4db6-913a-87d8313082c0'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>

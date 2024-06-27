@@ -53,11 +53,12 @@
     height: 50px;
     background-color: transparent;
     border: none;
-    font-size: 39px;
-    color: white;
+    font-size: 70px;
+    color: rgb(255, 255, 255);
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.8;
     transition: opacity 0.3s;
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .prev-button:hover,
@@ -67,9 +68,9 @@
 }
 
 .prev-button {
-    left: 10px;
+    left: 0px;
 }
 
 .next-button {
-    right: 10px;
+    right: 20px;
 }

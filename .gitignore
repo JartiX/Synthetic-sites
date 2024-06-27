@@ -3,3 +3,4 @@
 *.pyc
 test.py
 /ignore
+keys.py

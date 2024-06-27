@@ -1,6 +1,6 @@
 import os
 import google.generativeai as genai
-from ignore.keys import gemini_key
+from keys import gemini_key
 from src.rate_limiter import RateLimiter
 
 class GenerateException(Exception):
