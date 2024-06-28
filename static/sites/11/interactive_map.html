@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
+    <title>Интерактивная карта</title>
+</head>
+
+<body>
+    <div class="zoom-buttons">
+        <button id="zoom-in" onclick="zoomIn()">+</button>
+        <button id="zoom-out" onclick="zoomOut()">-</button>
+    </div>
+    <svg id="map" width="1100" height="1100"></svg>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        var objects = [{'name': 'Эльфийские сады', 'category': 'Зоопарки', 'coords': [134.283613, 562.837147], 'id': '254d2bb1-1ed9-4e9b-8eb7-b1f87cabcf5e'}, {'name': 'Побережье Кракена', 'category': 'Пляжи', 'coords': [987.069049, 475.47229], 'id': '9c5a4135-84cb-4f48-82f0-4b49ad556c8b'}, {'name': 'Рынок магов', 'category': 'Торговые центры', 'coords': [262.227154, 323.144842], 'id': '2e1ac2ac-5e28-4a16-999a-8768c4777d5d'}, {'name': 'Музей музыкантов', 'category': 'Музеи', 'coords': [648.081437, 127.330885], 'id': '2cc43fe6-46f8-45c7-8e46-3bf74cca4d37'}, {'name': 'Заповедник дикой природы Мерлина', 'category': 'Зоопарки', 'coords': [230.390168, 45.433889], 'id': '7441602b-ef77-4b9a-a78c-a497dd6b1a93'}, {'name': 'Сад феи', 'category': 'Сады', 'coords': [381.232603, 1048.196685], 'id': 'ba515a6b-3ec7-4615-ac53-8be7dcbd92fe'}, {'name': 'Театр Фейвайлд', 'category': 'Театры', 'coords': [653.921599, 753.467919], 'id': '0920cab7-1a31-4154-aaf1-72c81414aff9'}, {'name': 'Храм драконов', 'category': 'Исторические памятники', 'coords': [396.318407, 987.574255], 'id': '6fe0ff7e-ca1c-4bc7-9a6c-78de3c69af2a'}, {'name': 'Укрытие дикого эльфа', 'category': 'Парки', 'coords': [449.851979, 36.319575], 'id': '9c5540b5-70a2-4187-b0c7-468e23dabadf'}, {'name': 'Залив феи', 'category': 'Пляжи', 'coords': [609.864543, 841.929852], 'id': 'd9add9a2-23ea-497b-9544-8f7e4ff3afd8'}, {'name': 'Сад феи холл', 'category': 'Сады', 'coords': [476.978911, 1032.001348], 'id': '6e1fd1d4-f73c-4ed7-a390-5dcf258a77f9'}, {'name': 'Театр Логова Дракона', 'category': 'Театры', 'coords': [470.83949, 887.785336], 'id': '4749ed80-dbe6-43fd-94a0-24e5574dd785'}, {'name': 'Фонтан Желаний', 'category': 'Фонтаны', 'coords': [480.20301, 963.85412], 'id': '3132af07-7a09-47d7-a6d9-76da6a2b7857'}, {'name': 'Королевская роща', 'category': 'Парки', 'coords': [1022.712971, 1074.398521], 'id': '9c45c790-9d0a-4a13-8e89-8182193acfed'}, {'name': 'Великая стена дракона', 'category': 'Исторические памятники', 'coords': [469.257549, 935.818382], 'id': 'bad307d7-7e14-4731-97a6-78ff97d59fee'}, {'name': 'Аквариум мистической глубины', 'category': 'Аквариумы', 'coords': [829.626291, 213.032448], 'id': '0436974b-66b5-4c09-a0a0-cd0a1fa48a92'}];
+    </script>
+    <script src="/static/scripts/interactive_map_scripts.js"></script>
+</body>
+
+</html>
