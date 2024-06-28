@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Attach event listeners to each form
     document.getElementById('removeUserForm').addEventListener('submit', (e) => handleFormSubmit(e, 'DELETE', '/api/remove_user_by_id'));
     document.getElementById('createUserForm').addEventListener('submit', (e) => handleFormSubmit(e, 'POST', '/api/create_user'));
     document.getElementById('makeAdminForm').addEventListener('submit', (e) => handleFormSubmit(e, 'PUT', '/api/make_admin_by_id'));

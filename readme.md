@@ -5,6 +5,14 @@ https://jartix.github.io/Synthetic-sites/docs/sites_preview/site7/index.html
 
 https://jartix.github.io/Synthetic-sites/docs/sites_preview/site8/index.html
 
+
+# Примечание
+Для того, чтобы приложение корректно работало, необходимо создать файл keys.py в корне проекта и добавить туда 3 ключа: секретный ключ и API ключ для Кандинского и API ключ для Gemini.
+
+![Ключи](/docs/keys_view.png)
+
+Из-за блокировки Gemini на территории России, чтобы он работал необходим DNS или VPN.
+
 # Структура проекта
 ```txt
 .

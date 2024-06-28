@@ -1,17 +1,20 @@
 from flask import send_from_directory, redirect, url_for, request, render_template, flash, jsonify
 from flask_login import login_user, current_user, logout_user, login_required
-from functools import wraps
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+
+from functools import wraps
 import json
 import os
+
+from app import app
 from src.auth_scripts.forms import RegistrationForm, LoginForm
+from models.user_model import db, bcrypt, User
+from src.auth_scripts.create_user import create_user
+
 from src.delete_site import delete_site
 from src.HTML_generators.update_main_html import update_main_html
 from src.generate_site import generate_site
-from models.user_model import db, bcrypt, User
-from app import app
-from src.auth_scripts.create_user import create_user
 
 limiter = Limiter(
     key_func=get_remote_address,

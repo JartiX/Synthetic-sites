@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentIndex < slides.length - 1) {
             currentIndex++;
         } else {
-            currentIndex = 0; // Loop back to the first slide
+            currentIndex = 0;
         }
         updateSliderPosition();
     };
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentIndex > 0) {
             currentIndex--;
         } else {
-            currentIndex = slides.length - 1; // Loop to the last slide
+            currentIndex = slides.length - 1;
         }
         updateSliderPosition();
     };
@@ -32,8 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nextButton.addEventListener('click', moveToNextSlide);
     prevButton.addEventListener('click', moveToPrevSlide);
 
-    window.addEventListener('resize', updateSliderPosition); // Recalculate on resize
+    window.addEventListener('resize', updateSliderPosition);
 
-    // Initial setup
     updateSliderPosition();
 });
