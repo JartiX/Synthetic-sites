@@ -7,7 +7,7 @@
     - Некоторые конечные точки API (`/api/remove_user_by_id`, `/api/create_user_api`, `/api/make_admin_by_id`, `/api/get_username_by_id`, `/api/get_email_by_id`, `/api/get_id_by_username`, `/api/get_id_by_email`, `/api/get_users`) требуют привилегий администратора (декоратор `admin_required`) и взаимодействуют с моделью `User` в базе данных (`db`).
 # Функции связанные с API
 1. Конечные точки API для извлечения данных сайта:
-    - Конечные точки, такие как `/api/<site>/get_locations/`, `/api/<site>/get_likes_by_id/`, `/api/<site>/get_visits_by_id/`, `/api/<site>/get_reviews_by_id/`, `/api/<site>/get_stats_by_id/`, `/api/<site>/get_name_by_id/`, `/api/<site>/get_category_by_id/`, `/api/<site>/get_location_id_by_name/`, `/api/<site>/get_average_visits_by_id/` извлекают определенные данные из файлов JSON (`data.json`), хранящихся в `static/sites/<site>/`.
+    - Конечные точки, такие как `/api/<site>/get_locations/`, `/api/<site>/get_likes_by_id/`, `/api/<site>/get_visits_by_id/`, `/api/<site>/get_reviews_by_id/`, `/api/<site>/get_stats_by_id/`, `/api/<site>/get_name_by_id/`, `/api/<site>/get_category_by_id/`, `/api/<site>/get_locations_by_category_name`, `/api/<site>/get_location_id_by_name/`, `/api/<site>/get_average_visits_by_id/` извлекают определенные данные из файлов JSON (`data.json`), хранящихся в `static/sites/<site>/`.
     - Каждая конечная точка обрабатывает запросы GET с параметрами (сайт и иногда `id`) для возврата ответов JSON (`make_responce` для успеха или `make_error` для ошибок).
 2. Конечные точки API администратора для управления сайтом:
     - Конечные точки (`/api/delete_site_from_main_page`, `/api/add_existed_site`, `/api/delete_site`, `/api/create_site`) выполняют операции с данными и конфигурациями сайта (`static/sites.json`).

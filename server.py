@@ -368,6 +368,49 @@ def get_category_by_id(site):
     except Exception as ex:
         return make_error(ex, 500)
 
+@app.route('/api/<site>/get_locations_by_category_name', methods=['GET'])
+def get_locations_by_category_name(site):
+    """
+    Args:
+    "site": имя сайта (str)
+    "category": название категории (str)
+    Returns:
+    {
+        "locations": [
+            {
+            "id": идентификатор локации (str),
+            "name": название локации (str),
+            }
+        ]
+    }
+    """
+    category = request.args.get("category")
+    if category is None:
+        return make_error("Not enought params. Expected params: category" ,403)
+    
+    try:
+        result = []
+
+        with open(f'static/sites/{site}/data.json', 'r', encoding="utf-8") as f:
+            data = json.load(f)
+            for location in data:
+                if location["category"] == category:
+                    result.append(
+                        {
+                            "name": location["name"],
+                            "id": location["id"]
+                        }
+                    )
+                    break
+
+        if len(result) == 0:
+            return make_error(f"There is no locations with category {category}", 404)
+
+        return make_responce(result)
+    
+    except Exception as ex:
+        return make_error(ex, 500)
+    
 @app.route('/api/<site>/get_location_id_by_name/', methods=['GET'])
 def get_location_id_by_name(site):
     """
