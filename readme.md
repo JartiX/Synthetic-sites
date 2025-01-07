@@ -13,6 +13,8 @@ https://jartix.github.io/Synthetic-sites/docs/sites_preview/site8/index.html
 
 Из-за блокировки Gemini на территории России, чтобы он работал необходим DNS или VPN.
 
+Большую информацию по проекту можно посмотреть в директории docs
+
 # Структура проекта
 ```txt
 .
