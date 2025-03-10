@@ -1,6 +1,11 @@
 from uuid import uuid4
 
-class Location_model:
+class LocationModel:
+    """Модель Локации
+
+    Raises:
+        TypeError: _description_
+    """
     __name: str = None
     __coords: list[int] = None
     __category: str = None
@@ -13,7 +18,20 @@ class Location_model:
     __reviews_path: str = None
     __description_path: str = None
     
-    def __init__(self, name, coords, category, image_path, reviews_path, description_path):
+    def __init__(self, name: str, coords: list, category: str, image_path: str, reviews_path: str, description_path: str):
+        """Инициализация локационной модели
+
+        Args:
+            name (str): Имя локации
+            coords (list): Координаты локации
+            category (str): Категория
+            image_path (str): Путь до изображения
+            reviews_path (str): Путь до отзывов
+            description_path (str): Путь до описания
+
+        Raises:
+            TypeError: Ошибка типа
+        """
         if not isinstance(name, str):
             raise TypeError("Имя должно быть строкой")
         if not isinstance(coords, list):
@@ -39,129 +57,244 @@ class Location_model:
         self.__id = uuid4()
         
 
-    # Getter for name
     @property
     def name(self):
+        """Получить имя локации
+
+        Returns:
+            str: Имя локации
+        """
         return self.__name
 
-    # Setter for name
     @name.setter
-    def name(self, value):
+    def name(self, value: str):
+        """Задать имя локации
+
+        Args:
+            value (str): Имя локации
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, str):
             raise TypeError("Имя должно быть строкой")
         self.__name = value
 
-    # Getter for coords
     @property
     def coords(self):
+        """Получить координаты
+
+        Returns:
+            int: Координаты
+        """
         return self.__coords
 
-    # Setter for coords
     @coords.setter
-    def coords(self, value):
+    def coords(self, value: list):
+        """Задать координаты
+
+        Args:
+            value (list): X, Y координаты
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, list):
             raise TypeError("Координаты должны быть списком")
         self.__coords = value
 
-    # Getter for category
     @property
     def category(self):
+        """Получить категорию
+
+        Returns:
+            str: Категория
+        """
         return self.__category
 
-    # Setter for category
     @category.setter
-    def category(self, value):
+    def category(self, value: str):
+        """Задать категорию
+
+        Args:
+            value (str): Названии категории
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, str):
             raise TypeError("Категория должна быть строкой")
         self.__category = value
 
-    # Getter for id
     @property
     def id(self):
+        """Получить ID локации
+
+        Returns:
+            uuid4: ID локации
+        """
         return str(self.__id)
 
-    # Getter for likes
     @property
     def likes(self):
+        """Получить лайки
+
+        Returns:
+            int: Лайки
+        """
         return self.__likes
 
-    # Setter for likes
     @likes.setter
-    def likes(self, value):
+    def likes(self, value: int):
+        """Задать лайки
+
+        Args:
+            value (int): Лайки
+
+        Raises:
+            TypeError: _description_
+            ValueError: _description_
+        """
         if not isinstance(value, int):
             raise TypeError("Лайки должны быть целым числом")
         if value < 0:
             raise ValueError("Лайки не могут быть отрицательными")
         self.__likes = value
 
-    # Getter for reviews
     @property
     def reviews(self):
+        """Получить отзывы
+
+        Returns:
+            list: Отзывы
+        """
         return self.__reviews
 
-    # Setter for reviews
     @reviews.setter
-    def reviews(self, value):
+    def reviews(self, value: list):
+        """Задать отзывы
+
+        Args:
+            value (list): Отзывы
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, list):
             raise TypeError("Отзывы должны быть списком")
         self.__reviews = value
 
-    # Getter for visits
     @property
     def visits(self):
+        """Получить посещения
+
+        Returns:
+            dict[str, int]: Посещения
+        """
         return self.__visits
 
-    # Setter for visits
     @visits.setter
-    def visits(self, value):
+    def visits(self, value: dict[str, int]):
+        """Задать посещения
+
+        Args:
+            value (dict[str, int]): Посещения
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, dict):
             raise TypeError("Посещения должны быть словарем")
         self.__visits = value
         
-    # Getter for image_path
     @property
     def image_path(self):
+        """Получить путь до изображения
+
+        Returns:
+            str: Путь до изображения
+        """
         return self.__image_path
 
-    # Setter for image_path
     @image_path.setter
-    def image_path(self, value):
+    def image_path(self, value: str):
+        """Задать путь до изображения
+
+        Args:
+            value (str): Путь до изображения
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, str):
             raise TypeError("Путь до изображения должен быть строкой")
         self.__image_path = value
         
-    # Getter for reviews_path
     @property
     def reviews_path(self):
+        """Получить путь до отзывов
+
+        Returns:
+            str: Путь до отзывов
+        """
         return self.__reviews_path
 
-    # Setter for reviews_path
     @reviews_path.setter
-    def reviews_path(self, value):
+    def reviews_path(self, value: str):
+        """Задать путь до отзывов
+
+        Args:
+            value (str): Путь до отзывов
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, str):
             raise TypeError("Путь до отзывов должен быть строкой")
         self.__reviews_path = value   
         
-    # Getter for description_path
     @property
     def description_path(self):
+        """Получить путь до описания
+
+        Returns:
+            str: _description_
+        """
         return self.__description_path
 
-    # Setter for description_path
     @description_path.setter
-    def description_path(self, value):
+    def description_path(self, value: str):
+        """Задать путь до описания
+
+        Args:
+            value (str): Путь до описаний
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, str):
             raise TypeError("Путь до описания должен быть строкой")
         self.__description_path = value   
         
-    # Getter for description
     @property
     def description(self):
+        """Получить описание
+
+        Returns:
+            str: Описание
+        """
         return self.__description
 
-    # Setter for description
     @description.setter
-    def description(self, value):
+    def description(self, value: str):
+        """Задать описание
+
+        Args:
+            value (str): Описание
+
+        Raises:
+            TypeError: _description_
+        """
         if not isinstance(value, str):
             raise TypeError("Описание должно быть строкой")
         self.__description = value   
