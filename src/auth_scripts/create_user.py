@@ -7,7 +7,15 @@ sys.path.append(
 from models.user_model import db, User, bcrypt
 from app import app
 
-def create_user(username, email, password, is_admin):
+def create_user(username: str, email: str, password: str, is_admin: bool):
+    """Создание пользователя
+
+    Args:
+        username (str): Имя пользователя
+        email (str): Почта
+        password (str): Пароль
+        is_admin (bool): Статус администратора
+    """
     with app.app_context():
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         user = User(username=username, email=email, password=hashed_password, is_admin=is_admin)

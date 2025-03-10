@@ -7,7 +7,12 @@ class GenerateException(Exception):
     pass
 
 @RateLimiter(min_interval=15, max_calls=5, period=60)
-def generate_text(prompt, role):
+def generate_text(prompt: str, role: str) -> str:
+    """Генерация текста с использованием Gemini
+    
+    Returns:
+        str: Сгенерированный текст
+    """
     genai.configure(api_key=gemini_key)
     
     model = genai.GenerativeModel('gemini-1.5-pro', 

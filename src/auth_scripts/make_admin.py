@@ -6,7 +6,13 @@ print(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from models.user_model import db, User
 from app import app
 
-def make_admin(email, is_admin):
+def make_admin(email: str, is_admin: bool):
+    """Изменить статус администратора
+
+    Args:
+        email (str): Почта
+        is_admin (bool): Статус администрирования
+    """
     with app.app_context():
         user = User.query.filter_by(email=email).first()
         if user:

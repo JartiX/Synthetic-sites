@@ -3,7 +3,12 @@ import shutil
 import json
 from src.HTML_generators.update_main_html import update_main_html
 
-def delete_site(site_name):
+def delete_site(site_name: str):
+    """Удаление сайта
+
+    Args:
+        site_name (str): Имя сайта
+    """
     if os.path.exists(f"static/sites/{site_name}"):
         shutil.rmtree(f"static/sites/{site_name}")
 

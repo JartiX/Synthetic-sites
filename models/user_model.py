@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
         return f"User('{self.username}', '{self.email}', '{self.is_admin}')"
 
 @login_manager.user_loader
-def load_user(user_id):
+def load_user(user_id: int | str):
     return User.query.get(int(user_id))
 
 # Сигнал для обновления состояния объекта пользователя

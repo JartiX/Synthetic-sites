@@ -1,6 +1,13 @@
 import os
+from src.patterns import Patterns
+def generate_interactive_map(objects: list, path: str, file_name: str):
+    """Создание интерактивной карты
 
-def generate_interactive_map(objects, path, file_name):
+    Args:
+        objects (list): Локации
+        path (str): Путь сохранения
+        file_name (str): Имя файла
+    """
     data = []
     for obj in objects:
         data.append(
@@ -12,33 +19,8 @@ def generate_interactive_map(objects, path, file_name):
             }
         )
 
-    html = f"""
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/interactive_map_style.css">
-    <title>Интерактивная карта</title>
-</head>
-
-<body>
-    <div class="zoom-buttons">
-        <button id="zoom-in" onclick="zoomIn()">+</button>
-        <button id="zoom-out" onclick="zoomOut()">-</button>
-    </div>
-    <svg id="map" width="1100" height="1100"></svg>
-
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script>
-        var objects = {data};
-    </script>
-    <script src="/static/scripts/interactive_map_scripts.js"></script>
-</body>
-
-</html>
-"""
+    html = Patterns.get_interactive_map(data=data)
+    
     if not os.path.exists(path):
         os.mkdir(path)
     with open(f"{path}/{file_name}", 'w', encoding="utf-8") as file:

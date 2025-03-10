@@ -3,7 +3,9 @@ from threading import Lock, Semaphore
 
 
 class RateLimiter:
-    def __init__(self, min_interval, max_calls, period):
+    """Класс для ограничения числа обращений к API
+    """
+    def __init__(self, min_interval: int, max_calls: int, period: int):
         self.min_interval = min_interval
         self.max_calls = max_calls
         self.period = period
